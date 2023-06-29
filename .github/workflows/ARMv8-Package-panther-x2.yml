@@ -30,9 +30,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - version: MINI panther-x2
+        - version: MINI
           explain: 这是 ARMv8 精简版，只集成了一些常用插件
-        - version: PLUS panther-x2
+        - version: PLUS
           explain: 这是 ARMv8 多功能版，集成插件多适合折腾
 
     env:
@@ -92,10 +92,10 @@ jobs:
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true'
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }} for ARMv8_${{ env.VERSION }}
+        name: R${{ env.DATE }} for ARMv8-panther-x2_${{ env.VERSION }}
         allowUpdates: true
         removeArtifacts: true
-        tag: ARMv8_${{ env.VERSION }}
+        tag: ARMv8-panther-x2_${{ env.VERSION }}
         token: ${{ secrets.GITHUB1_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
