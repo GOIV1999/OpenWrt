@@ -30,9 +30,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - version: MINI
+        - version: MINI panther-x2
           explain: 这是 ARMv8 精简版，只集成了一些常用插件
-        - version: PLUS
+        - version: PLUS panther-x2
           explain: 这是 ARMv8 多功能版，集成插件多适合折腾
 
     env:
@@ -95,7 +95,7 @@ jobs:
         name: R${{ env.DATE }} for ARMv8_${{ env.VERSION }}
         allowUpdates: true
         removeArtifacts: true
-        tag: ARMv8_${{ env.VERSION }} panther-x2
+        tag: ARMv8_${{ env.VERSION }}
         token: ${{ secrets.GITHUB1_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
