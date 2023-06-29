@@ -146,7 +146,7 @@ jobs:
       if: steps.hash.outputs.REBUILD_TOOLCHAIN == 'true'
       uses: mknejp/delete-release-assets@v1
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB1_TOKEN }}
         tag: ${{ env.TOOLCHAIN_TAG }}
         assets: '${{ env.TOOLCHAIN_IMAGE }}.*'
         fail-if-no-assets: false
@@ -159,7 +159,7 @@ jobs:
         name: Toolchain-Image
         allowUpdates: true
         tag: ${{ env.TOOLCHAIN_TAG }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB1_TOKEN }}
         artifacts: output/*
         body: OpenWrt 工具链镜像文件
 
@@ -340,7 +340,7 @@ jobs:
         name: R${{ env.DATE }} for ${{ env.FIRMWARE_TAG }}
         allowUpdates: true
         tag: ${{ env.FIRMWARE_TAG }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB1_TOKEN }}
         artifacts: ${{ env.FIRMWARE_PATH }}/*
         body: |
           **This is Temporary Firmware for Armvirt 64**
@@ -406,7 +406,7 @@ jobs:
         allowUpdates: true
         removeArtifacts: true
         tag: ${{ env.OPENWRT_TAG }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB1_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
           **This is OpenWrt Firmware for Armvirt 64**
