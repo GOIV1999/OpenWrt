@@ -74,7 +74,7 @@ jobs:
 
     - name: Package OpenWrt Firmware
       if: steps.download.outputs.status == 'success'
-      uses: ophub/amlogic-s9xxx-openwrt@main
+      uses: xiaomeng9597/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
         openwrt_board: panther-x2
