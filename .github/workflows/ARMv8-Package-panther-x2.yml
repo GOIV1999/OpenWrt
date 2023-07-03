@@ -10,8 +10,8 @@ name: ARMv8 Package panther-x2
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 15 * * *
+   # schedule:
+   # - cron: 0 15 * * *
   watch:
     types: started
 
