@@ -135,9 +135,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9b566686e351125d67568a33291650eb8dfa26614d205d
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.16.0/g' feeds/packages/utils/docker-compose/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=556dc59075280442128f5b45a8ff37638fb357c2a956bd751dd0ba747c93e71d/g' feeds/packages/utils/docker-compose/Makefile
 
-
-#wget -P feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal/terminal.htm https://xiaomeng9597.github.io/terminal.htm
-
+rm -f feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal/terminal.htm
+wget -P feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal https://xiaomeng9597.github.io/terminal.htm
 
 # gzip
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.12/g' feeds/packages/utils/gzip/Makefile
