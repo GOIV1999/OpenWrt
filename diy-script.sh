@@ -135,11 +135,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9b566686e351125d67568a33291650eb8dfa26614d205d
 # docker root directory
 sed -i 's/\/opt\//\/mnt\/mmcblk1p4\//g'  feeds/luci/applications/luci-app-docker/root/etc/docker/daemon.json
 sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/etc/config/dockerd
-
 sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua
 sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua
-sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/package/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua
-
 sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/Makefile
 sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/dockerd.init
 sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/daemon.json
