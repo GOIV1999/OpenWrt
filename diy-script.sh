@@ -132,7 +132,7 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.2.3/g' feeds/packages/lang/php8/Makefil
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9b566686e351125d67568a33291650eb8dfa26614d205d70d82e6e92613d457/g' feeds/packages/lang/php8/Makefile
 
 
-# docker path
+# docker root directory
 sed -i 's/\/opt\//\/mmcblk1p4\//g'  feeds/luci/applications/luci-app-docker/root/etc/docker/daemon.json
 sed -i 's/\/opt\/docker\//\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/etc/config/dockerd
 sed -i 's/\/opt\/docker\//\/mmcblk1p4\/docker\//g'  feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua
