@@ -131,6 +131,16 @@ find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.2.3/g' feeds/packages/lang/php8/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9b566686e351125d67568a33291650eb8dfa26614d205d70d82e6e92613d457/g' feeds/packages/lang/php8/Makefile
 
+
+# docker path
+sed -i 's/\/opt\//\/mmcblk1p4\//g'  feeds/luci/applications/luci-app-docker/root/etc/docker/daemon.json
+sed -i 's/\/opt\/docker\//\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/etc/config/dockerd
+sed -i 's/\/opt\/docker\//\/mmcblk1p4\/docker\//g'  feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua
+sed -i 's/\/opt\/docker\//\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/Makefile
+sed -i 's/\/opt\/docker\//\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/dockerd.init
+sed -i 's/\/opt\/docker\//\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/daemon.json
+
+
 # docker-compose
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.16.0/g' feeds/packages/utils/docker-compose/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=556dc59075280442128f5b45a8ff37638fb357c2a956bd751dd0ba747c93e71d/g' feeds/packages/utils/docker-compose/Makefile
