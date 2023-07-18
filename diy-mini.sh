@@ -117,5 +117,36 @@ sed -i 's|admin\\|admin\\/services\\|g' package/luci-app-dockerman/luasrc/view/d
 # 修改插件名字
 # sed -i 's/"带宽监控"/"监控"/g' `grep "带宽监控" -rl ./`
 
+
+# php8
+#rm -rf feeds/packages/lang/php8
+#svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.2.3/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9b566686e351125d67568a33291650eb8dfa26614d205d70d82e6e92613d457/g' feeds/packages/lang/php8/Makefile
+
+
+# docker root directory
+sed -i 's/\/opt\//\/mnt\/mmcblk1p4\//g'  feeds/luci/applications/luci-app-docker/root/etc/docker/daemon.json
+sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/etc/config/dockerd
+# sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua
+sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  package/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua
+sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/Makefile
+sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/dockerd.init
+sed -i 's/\/opt\/docker\//\/mnt\/mmcblk1p4\/docker\//g'  feeds/packages/utils/dockerd/files/daemon.json
+
+
+# docker-compose
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.16.0/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=556dc59075280442128f5b45a8ff37638fb357c2a956bd751dd0ba747c93e71d/g' feeds/packages/utils/docker-compose/Makefile
+
+rm -f feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal/terminal.htm
+wget -P feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal https://xiaomeng9597.github.io/terminal.htm
+
+# gzip
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.12/g' feeds/packages/utils/gzip/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/gzip/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=ce5e03e519f637e1f814011ace35c4f87b33c0bbabeec35baf5fbd3479e91956/g' feeds/packages/utils/gzip/Makefile
+
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
